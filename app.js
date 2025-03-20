@@ -82,7 +82,7 @@ passport.deserializeUser(function(user, done) {
 passport.use(new GoogleStrategy({
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
-  callbackURL: "http://localhost:3000/auth/google/secrets"
+  callbackURL: "https://mysecrets-mdbn.onrender.com/auth/google/secrets"
 },
 function(accessToken, refreshToken, profile, cb) {
   // console.log(profile);
