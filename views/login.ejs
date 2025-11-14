@@ -1,231 +1,47 @@
 <%- include('partials/header') %>
 
-<style>
-  .login-container {
-    min-height: calc(100vh - 200px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 40px 0;
-  }
-  
-  .login-wrapper {
-    max-width: 1000px;
-    width: 100%;
-    padding: 0 15px;
-  }
-  
-  .login-card {
-    border: none;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    background: white;
-  }
-  
-  .login-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 40px;
-    text-align: center;
-  }
-  
-  .login-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    font-weight: 700;
-  }
-  
-  .login-header p {
-    margin: 10px 0 0 0;
-    opacity: 0.9;
-    font-size: 1.1rem;
-  }
-  
-  .login-body {
-    padding: 40px;
-  }
-  
-  .form-label {
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 8px;
-  }
-  
-  .form-control {
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 12px 16px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-  }
-  
-  .form-control:focus {
-    border-color: #667eea;
-    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
-  }
-  
-  .form-group {
-    margin-bottom: 25px;
-  }
-  
-  .btn-login {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border: none;
-    border-radius: 10px;
-    padding: 14px 30px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: white;
-    width: 100%;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .btn-login:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-    color: white;
-  }
-  
-  .divider {
-    text-align: center;
-    margin: 30px 0;
-    position: relative;
-  }
-  
-  .divider::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 100%;
-    height: 1px;
-    background: #e0e0e0;
-  }
-  
-  .divider span {
-    background: white;
-    padding: 0 15px;
-    position: relative;
-    color: #999;
-    font-weight: 500;
-  }
-  
-  .social-login {
-    background: white;
-    padding: 40px;
-    border-left: 2px solid #f5f5f5;
-  }
-  
-  .social-login h5 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: #333;
-    font-weight: 600;
-  }
-  
-  .btn-social {
-    border-radius: 10px;
-    padding: 14px 20px;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 2px solid transparent;
-  }
-  
-  .btn-social:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  .btn-google {
-    background: white;
-    color: #db4437;
-    border-color: #db4437;
-  }
-  
-  .btn-google:hover {
-    background: #db4437;
-    color: white;
-    border-color: #db4437;
-  }
-  
-  .btn-facebook {
-    background: white;
-    color: #4267B2;
-    border-color: #4267B2;
-  }
-  
-  .btn-facebook:hover {
-    background: #4267B2;
-    color: white;
-    border-color: #4267B2;
-  }
-  
-  .btn-social i {
-    margin-right: 10px;
-    font-size: 1.2rem;
-  }
-  
-  @media (max-width: 768px) {
-    .login-body {
-      padding: 30px 20px;
-    }
-    
-    .social-login {
-      border-left: none;
-      border-top: 2px solid #f5f5f5;
-      padding: 30px 20px;
-    }
-    
-    .login-header h1 {
-      font-size: 2rem;
-    }
-  }
-</style>
+<div class="container mt-5">
+  <h1>Login</h1>
 
-<div class="login-container">
-  <div class="login-wrapper">
-    <div class="login-card">
-      <div class="login-header">
-        <h1>Welcome Back</h1>
-        <p>Please login to continue</p>
-      </div>
-      
-      <div class="row g-0">
-        <div class="col-lg-7">
-          <div class="login-body">
-            <form action="/login" method="POST">
-              <div class="form-group">
-                <label for="email" class="form-label">Email Address</label>
-                <input type="email" class="form-control" name="username" id="email" placeholder="Enter your email" required>
-              </div>
-              <div class="form-group">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password" required>
-              </div>
-              <button type="submit" class="btn btn-login">Login</button>
-            </form>
-          </div>
-        </div>
-        
-        <div class="col-lg-5">
-          <div class="social-login">
-            <h5>Or continue with</h5>
-            <a class="btn btn-block btn-social btn-google" href="/auth/google" role="button">
-              <i class="fab fa-google"></i>
-              Login with Google
-            </a>
-            <a class="btn btn-block btn-social btn-facebook" href="/auth/facebook" role="button">
-              <i class="fab fa-facebook"></i>
-              Login with Facebook
-            </a>
-          </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- Makes POST request to /login route -->
+          <form action="/login" method="POST">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" name="username">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+            <button type="submit" class="btn btn-dark">Login</button>
+          </form>
+
         </div>
       </div>
     </div>
+
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <a class="btn btn-block btn-social btn-google" href="/auth/google" role="button">
+            <i class="fab fa-google"></i>
+            Login In with Google
+          </a>
+        </div>
+        <div class="card-body">
+          <a class="btn btn-block btn-social btn-facebook" href="/auth/facebook" role="button">
+            <i class="fab fa-facebook"></i>
+            Login In with Facebook
+          </a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
